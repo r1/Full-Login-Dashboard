@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Forum
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href="/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/css/forum.css" rel="stylesheet" />
+</head>
+<body scroll="no" style="overflow: hidden" class="">
+
+  <div id="preloader">
+    <div id="status"></div>
+  </div>
+  <script>
+    $(window).on('load', function () {
+      $('#status').fadeOut(); 
+      $('#preloader').delay(350).fadeOut('slow'); 
+      $('body').delay(350).css({ 'overflow': 'visible' });
+    })
+  </script>
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="./dashboard" class="simple-text logo-mini">
+            I
+          </a>
+          <a href="./dashboard" class="simple-text logo-normal">
+            Forum
+          </a>
+        </div>
+        <ul class="nav">
+          <li style="border:none">
+            <a style="border:none" href="./dashboard">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user">
+              <i class="material-icons">account_box</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="./1">
+              <i class="material-icons">add_box</i>
+              <p>1</p>
+            </a>
+          </li>
+          <li>
+            <a href="./shop">
+              <i class="material-icons">shopping_cart</i>
+              <p>Shop</p>
+            </a>
+            </li>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+    
+      <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+              <a class="navbar-brand" href="/register">Register</a>
+
+              <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav ml-auto">
+
+                  <li class="separator d-lg-none"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </nav>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="card card-upgrade">
+              <div class="card-header text-center">
+                <div class="card-header mb-5">
+                  <h1 class="text-center mb-3">
+                     Register
+                  </h1>
+Launch
+                  <% include ./partials/messages %>
+                  <form action="/register" name="Form" method="POST" onsubmit="return validateForm()" action="/php/mail.php">
+                    <div class="form-group">
+                      <label for="name">Username</label>
+                      <input type="name" id="name" name="name" class="form-control" placeholder="Enter Username"
+                        value="<%= typeof name != 'undefined' ? name : '' %>" />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+                    </div>
+                    <div class="form-group">
+                      <label for="password2">Confirm Password</label>
+                      <input type="password" id="password2" name="password2" class="form-control"
+                        placeholder="Confirm Password"
+                        value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                    </div>
+                    <div class="form-group">
+                      <label for="invite">Invite Code</label>
+                      <input type="invite" id="invite" name="invite" class="form-control" placeholder="Invite Code"
+                        value="<%= typeof invite != 'undefined' ? invite : '' %>" />
+                        <label for="group">Group</label>
+                        <input type="group" class="form-control" id="group" placeholder="Enter Group Name"
+                         value="<%= typeof group != 'undefined' ? group : '' %>"/>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-default btn-block animation-on-hover" >
+                      Register
+                    </button>
+                  </form>
+                  <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+
+          <div class="copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script> Site Developer - </i>
+            <a href="https://github.com/0II">jpw</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+    </div>
+  </div>
+
+  
+  <script src="/core/jquery.min.js"></script>
+  <script src="/core/popper.min.js"></script>
+  <script src="/core/bootstrap.min.js"></script>
+  <script src="/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="/js/black-dashboard.min.js?v=1.0.0"></script>
+
+  <script>
+    $(document).ready(function () {
+      $().ready(function () {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        
+        $('.fixed-plugin a').click(function (event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .background-color span').click(function () {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
+
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
+
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
+
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
+
+         
+          var simulateWindowResize = setInterval(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+         
+          setTimeout(function () {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
+            setTimeout(function () {
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
+
+            $('body').addClass('change-background');
+            setTimeout(function () {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
+
+            white_color = true;
+          }
+
+
+        });
+
+        $('.light-badge').click(function () {
+          $('body').addClass('white-content');
+        });
+
+        $('.dark-badge').click(function () {
+          $('body').removeClass('white-content');
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
