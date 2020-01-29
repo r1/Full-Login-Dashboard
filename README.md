@@ -19,6 +19,6 @@ connect, put your connection string in config/keys
 ![](preview/login.png)
 ![](preview/Reg.png)
 ![](preview/dash.png)
-![](preview/user.png)
+![](preview/User.png)
 ![](preview/1.png)
 ![](preview/Shop.png)
