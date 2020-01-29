@@ -1,15 +1,14 @@
 {
-  "name": "baim.wtf",
+  "name": "forum",
   "version": "2.0.0",
-  "description": "baim.wtf",
+  "description": "forum",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "app.js",
+    "dev": "app.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
