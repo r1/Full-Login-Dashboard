@@ -5,7 +5,7 @@ Full Login/Reg Dashboard With Authentication And Invite System
 
 - Dashboard Docs https://demos.creative-tim.com/black-dashboard/docs/1.0/components/buttons.html
 
-- Icons I use https://material.io/resources/icons/?style=baseline
+- Icons I use https://material.io/resources/icons/?style=baseline 
 
 - How to use 
 
