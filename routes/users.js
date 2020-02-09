@@ -15,10 +15,10 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, password, password2, invite, group } = req.body;
+  const { name, email, password, password2, group } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !invite || !group) {
+  if (!name || !email || !password || !password2 || !group) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -41,25 +41,7 @@ router.post('/register', (req, res) => {
   if (group != "Admin") { // Setting name restrictions
     errors.push({ msg: 'Group name is not allowed' });
   }
- 
-// Invite System is just a simple if statement, you can make this automated.
-  if (invite != "invite0" &&
-   invite != "invite1" &&
-   invite != "invite2" &&
-   invite != "invite3" &&
-   invite != "invite4" &&
-   invite != "invite5" &&
-   invite != "invite6" &&
-   invite != "invite7" &&
-   invite != "invite8"
-   ) {
-    errors.push({ msg: 'Invite Invalid' });
-  }  
-
-
-
-
-               
+              
   if (errors.length > 0) {
     res.render('register', {
       errors,
@@ -67,11 +49,10 @@ router.post('/register', (req, res) => {
       email,
       password,
       password2,
-      invite,
       group
     });
   } else {
-    User.findOne({ invite: invite }) && User.findOne({ name: name }).then(user => {
+    User.findOne({ name: name }).then(user => {
       if (user) { 
         errors.push({ msg: 'Username Exists' });
         res.render('register', {
@@ -80,7 +61,6 @@ router.post('/register', (req, res) => {
           email,
           password,
           password2,
-          invite,
           group
        
         });
@@ -89,7 +69,6 @@ router.post('/register', (req, res) => {
           name,
           email,
           password,
-          invite,
           group
         });
 
