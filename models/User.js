@@ -17,10 +17,6 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  invite: {
-    type: String,
-    required: true
-  },
   group: {
     type: String,
     required: true
